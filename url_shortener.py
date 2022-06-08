@@ -21,7 +21,8 @@ def main():
 
     bitly_token = os.getenv('BITLY_TOKEN')
 
-    long_url = 'http://dvmn.org/'
+    long_url = input('Ссылка: ')
+
     try:
         print('Битлинк', shorten_link(bitly_token, long_url))
     except requests.exceptions.HTTPError as error:
