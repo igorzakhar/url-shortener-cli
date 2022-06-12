@@ -38,10 +38,7 @@ def is_bitlink(token, url):
     headers = {'Authorization': f'Bearer {token}'}
 
     response = requests.get(api_url, headers=headers)
-    if response.ok:
-        return True
-
-    return False
+    return response.ok
 
 
 def main():
