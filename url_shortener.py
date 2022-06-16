@@ -48,14 +48,14 @@ def main():
 
     input_url = input('Ссылка: ')
 
-    if not is_bitlink(bitly_token, input_url):
-        try:
+    try:
+        if not is_bitlink(bitly_token, input_url):
             short_url = shorten_link(bitly_token, input_url)
             print('Битлинк', short_url)
-        except requests.exceptions.HTTPError as error:
-            logging.exception(error, exc_info=False)
-    else:
-        print('Количество кликов:', count_clicks(bitly_token, input_url))
+        else:
+            print('Количество кликов:', count_clicks(bitly_token, input_url))
+    except requests.exceptions.HTTPError as error:
+        logging.exception(error, exc_info=False)
 
 
 if __name__ == '__main__':
