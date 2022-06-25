@@ -1,10 +1,6 @@
 # Консольная утилита для сокращения URL
 Простое консольное приложение для сокращения URL-адресов с использованием API сервиса [Bitly](https://bitly.com).
 
-Демонстрация работы приложения:
-
-![](https://github.com/igorzakhar/url-shortener-cli/blob/main/media/bitly_example.gif)
-
 
 ## Установка
 Для запуска приложения нужен предустановленный Python версии не ниже 3.8+ (на других версиях не проверялся).
@@ -47,10 +43,9 @@ BITLY_TOKEN=ваш_токен
 
 ## Запуск
 
-Запуск приложения:
-```bash
-$ python3 url_shortener.py
-```
+Примеры запуска приложения:
+
+![](https://github.com/igorzakhar/url-shortener-cli/blob/main/media/screenshot.png)
 
 # Цели проекта
 
