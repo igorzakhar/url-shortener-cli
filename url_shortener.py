@@ -1,3 +1,4 @@
+import argparse
 import logging
 import os
 
@@ -46,16 +47,22 @@ def main():
 
     bitly_token = os.getenv('BITLY_TOKEN')
 
-    input_url = input('Ссылка: ')
+    parser = argparse.ArgumentParser(
+        description='Cокращатель URL-адресов через API сервиса Bitly.'
+    )
+    parser.add_argument('url', help='Ссылка пользователя')
+    args = parser.parse_args()
 
-    try:
-        if not is_bitlink(bitly_token, input_url):
-            short_url = shorten_link(bitly_token, input_url)
-            print('Битлинк', short_url)
-        else:
-            print('Количество кликов:', count_clicks(bitly_token, input_url))
-    except requests.exceptions.HTTPError as error:
-        logging.exception(error, exc_info=False)
+    if args.url:
+        try:
+            if not is_bitlink(bitly_token, args.url):
+                short_url = shorten_link(bitly_token, args.url)
+                print(short_url)
+            else:
+                click_count = count_clicks(bitly_token, args.url)
+                print('Количество переходов по ссылке битли:', click_count)
+        except requests.exceptions.HTTPError as error:
+            logging.exception(error, exc_info=False)
 
 
 if __name__ == '__main__':
