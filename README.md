@@ -47,6 +47,3 @@ BITLY_TOKEN=ваш_токен
 
 ![](https://github.com/igorzakhar/url-shortener-cli/blob/main/media/screenshot.png)
 
-# Цели проекта
-
-Код написан в учебных целях в рамках курса [Devman](https://dvmn.org/modules).
